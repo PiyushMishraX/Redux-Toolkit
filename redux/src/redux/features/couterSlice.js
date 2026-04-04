@@ -15,3 +15,12 @@ export const counterSlice = createSlice({
         }  // a reducer named decrement decreaing value by 1
     },
 })
+
+export const {increment, decrement} = counterSlice.actions 
+// actions exported from couterSliece
+// they can be used directly
+export default counterSlice.reducer
+
+
+
+// this whole is a slice 
