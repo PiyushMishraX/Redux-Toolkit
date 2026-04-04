@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { counterSlice } from './features/couterSlice'
 import counterReducer  from "./features/couterSlice"; // default export so any name would be fine
 
 export const store = configureStore({
