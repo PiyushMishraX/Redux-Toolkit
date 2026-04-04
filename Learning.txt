@@ -1,0 +1,20 @@
+Why we Need Redux -
+
+React ki kaamiyo ko ddor karna
+it can be used sepearte from react with html , css and java script
+
+React -> UI
+problem -> state management                   
+
+
+Redux
+centralization
+state management
+
+redux roblem -
+sntax ( very difficult to understand)
+long boilerplate
+setup is very time taking
+
+redux 2.0 -> redux toolkit
+
