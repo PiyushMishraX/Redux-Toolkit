@@ -6,3 +6,5 @@ export const store = configureStore({
 
     }
 })
+
+// provide thrstore everywhere
