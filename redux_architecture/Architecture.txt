@@ -1,0 +1,8 @@
+app , nav , h1 , btn can access data from centralized place which is data,
+this data can be called redux store
+
+
+Architecture-
+
+
+BTN cliked -> ui layer -> event handler ( event dispatch ) -> action ->redux store -> action dispatch -> reducer(function) -> update state -> redux store -> ui update-> ui layer
