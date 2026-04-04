@@ -12,11 +12,14 @@ export const counterSlice = createSlice({
         }, // a reducer named increment increasing value by 1
         decrement:(state)=>{
             state.value -= 1
-        }  // a reducer named decrement decreaing value by 1
+        },  // a reducer named decrement decreaing value by 1
+        incrementByAmount:(state,actions)=>{
+            state.value += actions.payload // the value sent by the function
+        },
     },
 })
 
-export const {increment, decrement} = counterSlice.actions 
+export const {increment, decrement, incrementByAmount} = counterSlice.actions 
 // actions exported from couterSliece
 // they can be used directly
 export default counterSlice.reducer

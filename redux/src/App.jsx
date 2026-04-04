@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from './redux/features/couterSlice'
+import { decrement, increment, incrementByAmount } from './redux/features/couterSlice'
 
 const App = () => {
 
@@ -22,6 +22,10 @@ const App = () => {
       <button onClick={()=>{
       dispatch(decrement())        
       }}>drcrement</button>
+
+      <button onClick={()=>{
+      dispatch(incrementByAmount(5))        
+      }}>Increase by 5</button>
     </div>
   )
 }
