@@ -1,11 +1,12 @@
-import { fetchPhotos } from "./api/mediaApi"
+import { fetchPhotos, fetchVideos } from "./api/mediaApi"
 
 
 const App = () => {
 
-  function getPhotos(){
-    fetchPhotos()
-  }
+  // function getPhotos(){
+  //   fetchPhotos()
+  // }
+
   return (
     <div className="h-screen w-ful text-white  bg-gray-950">
       {/* <h1 className='text-6xl bg-red-600'>I am Piyush</h1> */}
@@ -25,6 +26,12 @@ const App = () => {
         console.log(data.results);
         
       }}>Get photos</button> 
+
+      <button onClick={async ()=>{
+        const data = await fetchVideos('cat')
+        console.log(data.results);
+        
+      }}>Get Videos</button> 
     </div>
   )
 }
