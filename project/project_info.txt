@@ -6,4 +6,4 @@ redux
 
 Generate api from unsplash -
 login and create developr account 
-get api keys of unslash and pexels
+get api keys of unslash and pexels (add in .env file created in main project folder ( not src))
