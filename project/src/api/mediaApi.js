@@ -21,3 +21,14 @@ export async function fetchPhotos(query,page =1 , per_page=20) {
     return res.data;
     
 }
+
+// export async function fetchVideos(query,page=1 , per_page=15){
+export async function fetchVideos(query, per_page=15){
+    const res = await axios.get('https://api.pexels.com/v1/videos/search',{
+        // params:{query,page,per_page}, 
+        params:{query,per_page}, 
+        // headers:{Authorization:`Client-ID ${PEXELS_KEY}`} // nop need for client ( always check documentation to check how to use such keys etc) 
+        headers:{Authorization:PEXELS_KEY} 
+    }) 
+    return res.data;
+}
