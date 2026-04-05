@@ -16,7 +16,9 @@ const App = () => {
 
 
       <button onClick={()=>{
-        fetchPhotos('cat')
+        // fetchPhotos('cat')
+        // fetchPhotos('dog')
+        console.log(fetchPhotos('cat'));
       }}>Get photos</button> 
     </div>
   )
