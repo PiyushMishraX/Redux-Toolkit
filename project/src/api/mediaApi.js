@@ -14,8 +14,8 @@ export function fetchPhotos(query,page =1 , per_page=20) {
     const res = axios.get('https://api.unsplash.com/search/photos',{
         // pass query in params 
         params:{query,page,per_page}, // passing query in params
-        headers:{}
-    }) // to get photos
+        headers:{Authorization:`Client-ID ${UNSPLASH_KEY}`} //make sure to write everything same 
+    }) 
     console.log(res);
     
 }
