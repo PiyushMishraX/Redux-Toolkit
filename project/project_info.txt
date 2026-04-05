@@ -3,3 +3,7 @@ tailwind
 axios 
 react router dom
 redux 
+
+Generate api from unsplash -
+login and create developr account 
+get api keys of unslash and pexels
