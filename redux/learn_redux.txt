@@ -2,9 +2,12 @@ install redux -
 npm install @reduxjs/toolkit react-redux 
 // for react
 
-and
+or
 npm install @reduxjs/toolkit 
 // for vanilla JS
+
+and  then run--
+npm install react-redux
 
 create folder sotre to store redux store data
 or create

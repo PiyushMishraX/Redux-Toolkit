@@ -1,0 +1,5 @@
+usinginstall -
+tailwind 
+axios 
+react router dom
+redux 
