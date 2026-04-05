@@ -15,10 +15,15 @@ const App = () => {
       {/* to see fo to inspect -> network -> photos */}
 
 
-      <button onClick={()=>{
+      <button onClick={async ()=>{
         // fetchPhotos('cat')
         // fetchPhotos('dog')
-        console.log(fetchPhotos('cat'));
+        // console.log(fetchPhotos('cat'));
+        const data = await fetchPhotos('cat')
+        
+        // console.log(data);
+        console.log(data.results);
+        
       }}>Get photos</button> 
     </div>
   )
