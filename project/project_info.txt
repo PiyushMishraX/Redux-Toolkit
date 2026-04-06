@@ -7,3 +7,5 @@ redux
 Generate api from unsplash -
 login and create developr account 
 get api keys of unslash and pexels (add in .env file created in main project folder ( not src))
+
+tenor do not provide api key after 13 jan 2026 so using klipy api key 
