@@ -8,7 +8,7 @@ const Tabs1 = () => {
   const dispatch = useDispatch();
 
   const activeTab = useSelector((state)=>state.search.activeTab)
-  // store current value of active tab 
+  // store current value of active tab  // active tab valueis photo in slice which will change with clicks on buttons
 
   return (
     <div className="flex gap-5 p-10">
@@ -16,7 +16,7 @@ const Tabs1 = () => {
         return (
             <button
             //   className="bg-emerald-600 px-5 py-2 rounded uppercase cursor-pointer active:scale-95 "
-              className= {` ${(activeTab==elem?'bg-blue-700':'bg-gray-500')}  px-5 py-2 rounded uppercase cursor-pointer active:scale-95`}
+              className= {` ${(activeTab==elem?'bg-blue-700':'bg-gray-500')} transition px-5 py-2 rounded uppercase cursor-pointer active:scale-95`}
               key={idx}
               onClick={() => {
                 dispatch(setActiveTabs(elem));

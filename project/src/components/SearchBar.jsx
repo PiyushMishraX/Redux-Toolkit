@@ -25,7 +25,7 @@ const SearchBar = () => {
       {/* <form onSubmit={submitHandler} className="flex p-10 gap-5 bg-gray-900"> */}
       <form onSubmit={(e)=>{
         submitHandler(e)
-      }} className="flex p-10 gap-5 bg-gray-900">
+      }} className="flex py-10 px-10 gap-5 bg-gray-900">
 
         <input required
         value={text}
@@ -35,7 +35,7 @@ const SearchBar = () => {
             setText(e.target.value); // two way binding
             
         }}
-        className=" border-2 px-4 py-2 text-xl rounded outline-none"
+        className=" w-full border-2 px-4 py-2 text-xl rounded outline-none"
         type="text" 
         placeholder="Search anything.." 
         />

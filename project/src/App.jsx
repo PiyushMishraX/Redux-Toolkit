@@ -69,23 +69,19 @@
 
 // export default App;
 
-
-
-
-
-
-import React from 'react'
-import SearchBar from './components/SearchBar'
-import Tabs1 from './components/Tabs1'
+import React from "react";
+import SearchBar from "./components/SearchBar";
+import Tabs1 from "./components/Tabs1";
+import ResultGrid from "./components/ResultGrid";
 
 const App = () => {
   return (
     <div className="h-screen w-ful text-white  bg-gray-950">
-
       <SearchBar />
-       <Tabs1 />
+      <Tabs1 />
+      <ResultGrid />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
