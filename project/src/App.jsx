@@ -33,7 +33,7 @@ const App = () => {
         className=" bg-green-400 px-4 py-2 m-5"
         onClick={async () => {
           const data = await fetchVideos("cat");
-          console.log(data);
+          // console.log(data);
           // console.log(data.results);
           console.log(data.videos);
         }}
