@@ -76,14 +76,14 @@
 
 import React from 'react'
 import SearchBar from './components/SearchBar'
-import Tabs from './components/tabs'
+import Tabs1 from './components/Tabs1'
 
 const App = () => {
   return (
     <div className="h-screen w-ful text-white  bg-gray-950">
 
       <SearchBar />
-      <Tabs />
+       <Tabs1 />
     </div>
   )
 }
