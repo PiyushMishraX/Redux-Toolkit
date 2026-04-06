@@ -41,7 +41,7 @@ const SearchBar = () => {
         />
         <button 
         className="active:scale-95 border-2 px-4 py-2 text-xl rounded outline-none cursor-pointer ">
-            Search
+            Search s ssdf aasd
         </button>
       </form>
     </div>
