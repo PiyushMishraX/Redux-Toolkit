@@ -23,7 +23,10 @@ const collectionSlice = createSlice({
             }
         },
         removeCollection:(state,action)=>{
-
+            state.items = state.items.filter(
+                item => item.id != action.payload
+            ) // add those to the items whose we do not get action from ( so the clicked ones give action and have id that we get so all other elemetns are those whose value we will not get)
+            localStorage.setItem('collection', JSON.stringify(state.items))
         },
         clearCollection:(state,action)=>{
 
