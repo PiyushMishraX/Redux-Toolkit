@@ -9,6 +9,7 @@ import {
 } from "../redux/features/searchSlice";
 import { useEffect } from "react";
 import { use } from "react";
+import ResultCard from "./ResultCard";
 
 const ResultGrid = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const ResultGrid = () => {
 
   useEffect(
     function () {
+      if (!query) return; // no value passed in query so stop ( used when we change tabs) without entering anything , to prevent error
       const getData = async () => {
         try {
           dispatch(setLoading());
@@ -67,7 +69,7 @@ const ResultGrid = () => {
 
           dispatch(setResults(data));
         } catch (err) {
-          dispatch(setError(err));
+          dispatch(setError(err.message));
         }
       };
       getData();
@@ -75,7 +77,20 @@ const ResultGrid = () => {
     [query, activeTab],
   );
 
-  return <div>{/* <button onClick={}>Get Data</button> */}</div>;
+  if (error) return <h1>Error</h1>;
+  if (loading) return <h1>Error</h1>;
+
+  return (
+    <div className=" flex justify-center w-full flex-wrap gap-6 overflow-auto px-10">
+      {/* <button onClick={}>Get Data</button> */}
+      {results.map((item, idx) => {
+        // return <div key={idx}>{item.title}</div>;
+        return <div key={idx}>
+          <ResultCard item={item}/>
+        </div>;
+      })}
+    </div>
+  );
 };
 
 export default ResultGrid;
