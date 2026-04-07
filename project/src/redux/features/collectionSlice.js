@@ -11,13 +11,14 @@ const collectionSlice = createSlice({
     initialState, //uses the function
     reducers:{
         addTCOllection:(state, action)=>{
-            
+            state.items.push(action.payload)
+            localStorage.setItem('collection', JSON.stringify(state.items))
         },
         removeCollection:(state,action)=>{
 
         },
         clearCollection:(state,action)=>{
 
-        },,
+        },
     }
 })
