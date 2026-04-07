@@ -22,7 +22,15 @@ const ResultGrid = () => {
           let response = await fetchPhotos(query); // using let bcz is is {} block scoped
           // console.log(data); // select photos then input query search then get data
 
-          data = response.results; // store results array in data
+          // data = response.results; // store results array in data
+          data = response.results.map((item)=>({ // () so the element can be created as obj
+            id:item.id,
+            type:'photo',
+            title: item.alt_description,
+            thumbnail: item.urls.small,
+            src: item.urls.full,
+
+          }))
         }
         if (activeTab == "videos") {
           let response = await fetchVideos(query);
@@ -36,7 +44,7 @@ const ResultGrid = () => {
           data = response.data.data;
         }
         console.log(data);
-        
+        // console.log(data[0]); // different paths for each type of data so we will normalize the dat it in api calling sowe can write one method to call data(specifics) from all 3 using one normal method
       };
       getData();
     },
