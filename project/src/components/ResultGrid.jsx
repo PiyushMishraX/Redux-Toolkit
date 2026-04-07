@@ -8,57 +8,67 @@ import {
   setResults,
 } from "../redux/features/searchSlice";
 import { useEffect } from "react";
+import { use } from "react";
 
 const ResultGrid = () => {
+  const dispatch = useDispatch();
+
   const { query, activeTab, results, loading, error } = useSelector(
     (store) => store.search,
   );
 
   useEffect(
     function () {
-      let data;
       const getData = async () => {
-        if (activeTab == "photos") {
-          let response = await fetchPhotos(query); // using let bcz is is {} block scoped
-          // console.log(data); // select photos then input query search then get data
+        try {
+          dispatch(setLoading());
+          let data = [];
+          if (activeTab == "photos") {
+            let response = await fetchPhotos(query); // using let bcz is is {} block scoped
+            // console.log(data); // select photos then input query search then get data
 
-          // data = response.results; // store results array in data
-          data = response.results.map((item)=>({ // () so the element can be created as obj // normalization - only these properites will show in array now
-            id:item.id,
-            type:'photo',
-            title: item.alt_description,
-            thumbnail: item.urls.small,
-            src: item.urls.full,
+            // data = response.results; // store results array in data
+            data = response.results.map((item) => ({
+              // () so the element can be created as obj // normalization - only these properites will show in array now
+              id: item.id,
+              type: "photo",
+              title: item.alt_description,
+              thumbnail: item.urls.small,
+              src: item.urls.full,
+            }));
+          }
+          if (activeTab == "videos") {
+            let response = await fetchVideos(query);
+            // console.log(data);
 
-          }))
-        }
-        if (activeTab == "videos") {
-          let response = await fetchVideos(query);
+            data = response.videos.map((item) => ({
+              id: item.id,
+              type: "video",
+              title: item.user.name || "video",
+              thumbnail: item.image,
+              src: item.video_files[0].link,
+            }));
+          }
+          if (activeTab == "gif") {
+            let response = await fetchGIF(query);
+            // console.log(data);
+            // data = response.data.data
+            data = response.data.data.map((item) => ({
+              id: item.id,
+              type: "gif",
+              title: item.title || "gif",
+              // thumbnail: item.images.downsized.url,
+              thumbnail: item.images.fixed_height_small_still.url,
+              src: item.images.original.url,
+            }));
+          }
           // console.log(data);
+          // console.log(data[0]); // different paths for each type of data so we will normalize the dat it in api calling sowe can write one method to call data(specifics) from all 3 using one normal method
 
-          data = response.videos.map((item)=>({
-            id: item.id,
-            type:'video',
-            title: item.user.name || 'video',
-            thumbnail: item.image,
-            src: item.video_files[0].link,
-          }))
+          dispatch(setResults(data));
+        } catch (err) {
+          dispatch(setError(err));
         }
-        if (activeTab == "gif") {
-          let response = await fetchGIF(query);
-          // console.log(data);
-          // data = response.data.data
-          data = response.data.data.map((item)=>({
-            id: item.id,
-            type:'gif',
-            title: item.title || 'gif',
-            // thumbnail: item.images.downsized.url,
-            thumbnail: item.images.fixed_height_small_still.url,
-            src: item.images.original.url,
-          }))
-        }
-        console.log(data);
-        // console.log(data[0]); // different paths for each type of data so we will normalize the dat it in api calling sowe can write one method to call data(specifics) from all 3 using one normal method
       };
       getData();
     },
