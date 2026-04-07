@@ -47,7 +47,7 @@ const collectionSlice = createSlice({
     removeToast: () => {
       toast.error("removed from collection", {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: true,
