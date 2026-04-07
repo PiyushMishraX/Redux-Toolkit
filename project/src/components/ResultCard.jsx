@@ -16,6 +16,7 @@ const ResultCard = ({item}) => {
         <div id='bottom' className=' w-full px-6 py-10  text-white absolute bottom-0 '>
             <h2 className=' text-xl font-semibold capitalize '>{item.title}</h2>            
         </div>
+        
     </div>
   )
 }

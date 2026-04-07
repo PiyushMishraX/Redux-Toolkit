@@ -29,6 +29,9 @@ const ResultGrid = () => {
             let response = await fetchPhotos(query); // using let bcz is is {} block scoped
             // console.log(data); // select photos then input query search then get data
 
+            // console.log(response.data); // find url
+            
+
             // data = response.results; // store results array in data
             data = response.results.map((item) => ({
               // () so the element can be created as obj // normalization - only these properites will show in array now
@@ -37,11 +40,15 @@ const ResultGrid = () => {
               title: item.alt_description,
               thumbnail: item.urls.small,
               src: item.urls.full,
+              url:item.links.html,
             }));
           }
           if (activeTab == "videos") {
             let response = await fetchVideos(query);
             // console.log(data);
+
+            // console.log(response.videos); // find url
+            
 
             data = response.videos.map((item) => ({
               id: item.id,
@@ -49,12 +56,16 @@ const ResultGrid = () => {
               title: item.user.name || "video",
               thumbnail: item.image,
               src: item.video_files[0].link,
+              url: item.url,
             }));
           }
           if (activeTab == "gif") {
             let response = await fetchGIF(query);
             // console.log(data);
             // data = response.data.data
+
+            // console.log(response.data.data);
+            
             data = response.data.data.map((item) => ({
               id: item.id,
               type: "gif",
@@ -62,6 +73,7 @@ const ResultGrid = () => {
               // thumbnail: item.images.downsized.url,
               thumbnail: item.images.fixed_height_small_still.url,
               src: item.images.original.url,
+              url: item.url,
             }));
           }
           // console.log(data);
@@ -86,7 +98,7 @@ const ResultGrid = () => {
       {results.map((item, idx) => {
         // return <div key={idx}>{item.title}</div>;
         return <div key={idx}>
-          <ResultCard item={item}/>
+          <a target='_blank' href={item.url}><ResultCard item={item}/></a>
         </div>;
       })}
     </div>
