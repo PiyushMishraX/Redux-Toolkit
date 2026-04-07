@@ -11,8 +11,16 @@ const collectionSlice = createSlice({
     initialState, //uses the function
     reducers:{
         addTCOllection:(state, action)=>{
-            state.items.push(action.payload)
-            localStorage.setItem('collection', JSON.stringify(state.items))
+
+            const alreadyExists = state.items.find(
+                item => item.id == action.payload.id
+            )
+            // add item only if exists
+
+            if(!alreadyExists){
+                state.items.push(action.payload);
+                localStorage.setItem('collection', JSON.stringify(state.items))
+            }
         },
         removeCollection:(state,action)=>{
 
