@@ -98,7 +98,7 @@ const ResultGrid = () => {
       {results.map((item, idx) => {
         // return <div key={idx}>{item.title}</div>;
         return <div key={idx}>
-          <a target='_blank' href={item.url}><ResultCard item={item}/></a>
+          <ResultCard item={item}/>
         </div>;
       })}
     </div>
