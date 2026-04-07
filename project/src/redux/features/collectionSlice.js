@@ -10,10 +10,10 @@ const collectionSlice = createSlice({
     name:'collection',
     initialState, //uses the function
     reducers:{
-        addTCOllection:(state, action)=>{
+        addCOllection:(state, action)=>{
 
             const alreadyExists = state.items.find(
-                item => item.id == action.payload.id
+                item => item.id === action.payload.id
             )
             // add item only if exists
 
@@ -24,7 +24,7 @@ const collectionSlice = createSlice({
         },
         removeCollection:(state,action)=>{
             state.items = state.items.filter(
-                item => item.id != action.payload
+                item => item.id !== action.payload
             ) // add those to the items whose we do not get action from ( so the clicked ones give action and have id that we get so all other elemetns are those whose value we will not get)
             localStorage.setItem('collection', JSON.stringify(state.items))
         },
@@ -36,7 +36,7 @@ const collectionSlice = createSlice({
 })
 
 export const {
-    addTCOllection,
+    addCOllection,
     removeCollection,
     clearCollection
 } = collectionSlice.actions; // export from this 
