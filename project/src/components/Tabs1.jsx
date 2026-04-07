@@ -11,7 +11,7 @@ const Tabs1 = () => {
   // store current value of active tab  // active tab valueis photo in slice which will change with clicks on buttons
 
   return (
-    <div className="flex gap-5 p-10">
+    <div className="flex gap-5 p-10 justify-center">
       {tabs.map(function (elem, idx) {
         return (
             <button
