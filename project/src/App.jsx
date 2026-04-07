@@ -69,14 +69,17 @@
 
 // export default App;
 
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CollectionPage from "./pages/CollectionPage";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     // <div className="h-screen w-ful text-white  bg-gray-950">
     <div className="w-full min-h-screen text-white  bg-gray-950">
+
+      <Navbar />
 
     <Routes>
       <Route path='/' element={<HomePage/>}/>
