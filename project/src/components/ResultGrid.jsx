@@ -78,7 +78,7 @@ const ResultGrid = () => {
   );
 
   if (error) return <h1>Error</h1>;
-  if (loading) return <h1>Error</h1>;
+  if (loading) return <h1 className="px-6">loading...</h1>;
 
   return (
     <div className=" flex justify-center w-full flex-wrap gap-6 overflow-auto px-10">
