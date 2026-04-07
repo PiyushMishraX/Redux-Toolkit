@@ -34,3 +34,11 @@ const collectionSlice = createSlice({
         },
     }
 })
+
+export const {
+    addTCOllection,
+    removeCollection,
+    clearCollection
+} = collectionSlice.actions; // export from this 
+
+export default collectionSlice.reducer;
