@@ -23,7 +23,7 @@ const ResultGrid = () => {
           // console.log(data); // select photos then input query search then get data
 
           // data = response.results; // store results array in data
-          data = response.results.map((item)=>({ // () so the element can be created as obj
+          data = response.results.map((item)=>({ // () so the element can be created as obj // normalization - only these properites will show in array now
             id:item.id,
             type:'photo',
             title: item.alt_description,
@@ -36,12 +36,26 @@ const ResultGrid = () => {
           let response = await fetchVideos(query);
           // console.log(data);
 
-          data = response.videos;
+          data = response.videos.map((item)=>({
+            id: item.id,
+            type:'video',
+            title: item.user.name || 'video',
+            thumbnail: item.image,
+            src: item.video_files[0].link,
+          }))
         }
         if (activeTab == "gif") {
           let response = await fetchGIF(query);
           // console.log(data);
-          data = response.data.data;
+          // data = response.data.data
+          data = response.data.data.map((item)=>({
+            id: item.id,
+            type:'gif',
+            title: item.title || 'gif',
+            // thumbnail: item.images.downsized.url,
+            thumbnail: item.images.fixed_height_small_still.url,
+            src: item.images.original.url,
+          }))
         }
         console.log(data);
         // console.log(data[0]); // different paths for each type of data so we will normalize the dat it in api calling sowe can write one method to call data(specifics) from all 3 using one normal method

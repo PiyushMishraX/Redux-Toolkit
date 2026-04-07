@@ -80,6 +80,7 @@ const App = () => {
       <SearchBar />
       <Tabs1 />
       <ResultGrid />
+      {/* <img src="https://media4.giphy.com/media/v1.Y2lkPTU5MDE0MWYxYXEyZGwxdzF2cW1nZmpxa2hkN3RmanowaDAxZmhsbmdjYTlxNGJtMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/901mxGLGQN2PyCQpoc/giphy-downsized.gif" alt="" /> */}
     </div>
   );
 };
