@@ -1,7 +1,7 @@
 // using collection slice for storage instead of using storage locally
 
 import { createSlice } from "@reduxjs/toolkit";
- import { ToastContainer, toast } from 'react-toastify'; // make sure to add in app 
+ import { ToastContainer, toast, Zoom } from 'react-toastify'; // make sure to add in app 
 
 
 
@@ -36,7 +36,8 @@ const collectionSlice = createSlice({
             localStorage.removeItem('collection')
         },
         addedToast:()=>{
-            toast("Added to collection") // the thing come from site is toast
+            // toast("Added to collection") // the thing come from site is toast
+            toast('Added to Collection ✅');
         }
     }
 })
@@ -45,7 +46,7 @@ export const {
     addCOllection,
     removeCollection,
     clearCollection,
-    addedToast,
+    addedToast
 } = collectionSlice.actions; // export from this 
 
 export default collectionSlice.reducer;

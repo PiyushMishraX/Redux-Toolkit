@@ -81,6 +81,7 @@ const App = () => {
     <div className="w-full min-h-screen text-white  bg-gray-950">
 
       <Navbar />
+      <ToastContainer />
 
     <Routes>
       <Route path='/' element={<HomePage/>}/>
