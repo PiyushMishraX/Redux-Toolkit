@@ -1,13 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CollectionCard from "../components/CollectionCard";
-import { clearCollection } from "../redux/features/collectionSlice";
+import { clearCollection, clearToast } from "../redux/features/collectionSlice";
 
 const CollectionPage = () => {
   const dispatch = useDispatch();
 
   const clearAll = () => {
     dispatch(clearCollection());
+    dispatch(clearToast());
   };
 
   const collection = useSelector((state) => state.collection.items);
@@ -16,7 +17,7 @@ const CollectionPage = () => {
     <div className=" overflow-auto px-10 py-6">
       {collection.length > 0 ? (
         <div className="flex justify-between items-center mb-6">
-          <h2 className=" text-2xl font-medium">Your Collection</h2>
+          <h2 className=" text-3xl font-medium">Your Collection</h2>
           <button
             onClick={() => {
               clearAll();
@@ -28,7 +29,7 @@ const CollectionPage = () => {
         </div>
       ) : (
         <div className="flex justify-center">
-          <h2 className=" text-2xl font-medium">Collection is Empty</h2>        
+          <h2 className=" text-3xl font-medium">Collection is Empty</h2>        
         </div>
       )}
 

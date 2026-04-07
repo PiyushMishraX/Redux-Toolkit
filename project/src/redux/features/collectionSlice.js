@@ -57,10 +57,23 @@ const collectionSlice = createSlice({
         transition: Zoom,
       });
     },
+    clearToast: () => {
+      toast.error("Collection Cleared", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: 0,
+        theme: "dark",
+        transition: Zoom,
+      });
+    },
   },
 });
 
-export const { addCOllection, removeCollection, clearCollection, addedToast, removeToast } =
+export const { addCOllection, removeCollection, clearCollection, addedToast, removeToast, clearToast } =
   collectionSlice.actions; // export from this
 
 export default collectionSlice.reducer;
