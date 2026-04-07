@@ -73,15 +73,16 @@ import React from "react";
 import SearchBar from "./components/SearchBar";
 import Tabs1 from "./components/Tabs1";
 import ResultGrid from "./components/ResultGrid";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   return (
     // <div className="h-screen w-ful text-white  bg-gray-950">
     <div className="w-full min-h-screen text-white  bg-gray-950">
-      <SearchBar />
-      <Tabs1 />
-      <ResultGrid />
-      {/* <img src="https://media4.giphy.com/media/v1.Y2lkPTU5MDE0MWYxYXEyZGwxdzF2cW1nZmpxa2hkN3RmanowaDAxZmhsbmdjYTlxNGJtMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/901mxGLGQN2PyCQpoc/giphy-downsized.gif" alt="" /> */}
+
+    
+
     </div>
   );
 };
