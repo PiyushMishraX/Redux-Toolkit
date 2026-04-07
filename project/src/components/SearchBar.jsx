@@ -25,7 +25,7 @@ const SearchBar = () => {
       {/* <form onSubmit={submitHandler} className="flex p-10 gap-5 bg-gray-900"> */}
       <form onSubmit={(e)=>{
         submitHandler(e)
-      }} className="flex py-10 px-10 gap-5 bg-gray-900">
+      }} className="flex py-10 px-10 gap-5 bg-(--c1)">
 
         <input required
         value={text}
