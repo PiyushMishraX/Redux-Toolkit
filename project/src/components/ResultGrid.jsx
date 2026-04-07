@@ -9,25 +9,30 @@ const ResultGrid = () => {
 
     const {query, activeTab, results, loading, error} = useSelector((store)=>store.search)
 
-    let data;
-    const getData = async ()=>{
-        if(activeTab== 'photos'){
-            data= await fetchPhotos(query)
-            // console.log(data); // select photos then input query search then get data     
-        }
-        if(activeTab== 'videos'){
-            data= await fetchVideos(query)
-            // console.log(data);  
-        }
-        if(activeTab== 'gif'){
-            data= await fetchGIF(query)
+    
+    useEffect(function () {
+      let data;
+      const getData = async ()=>{
+          if(activeTab== 'photos'){
+              data= await fetchPhotos(query)
+              // console.log(data); // select photos then input query search then get data     
+          }
+          if(activeTab== 'videos'){
+              data= await fetchVideos(query)
+              // console.log(data);  
+          }
+          if(activeTab== 'gif'){
+              data= await fetchGIF(query)
+              // console.log(data); 
+            }
             console.log(data); 
-        }
-    }
+          }
+      getData()
+    },[query ,activeTab])
 
   return (
     <div>
-      <button onClick={getData}>Get Data</button>
+      {/* <button onClick={}>Get Data</button> */}
     </div>
   )
 }
