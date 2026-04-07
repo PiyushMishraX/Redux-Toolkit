@@ -1,6 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { removeCollection, removeToast } from '../redux/features/collectionSlice'
 
 const CollectionCard = ({item}) => {
+
+    const dispatch = useDispatch()
+
+    const removeFromCollection = (item)=>{
+        // dispatch(removeCollection(item))
+        dispatch(removeCollection(item.id)) // dispatch id because we wrote item.id != action.payload so diaptch id of item
+        dispatch(removeToast())
+        
+    }
+
   return (
      <div className='w-[18vw] min-w-50 h-80 relative bg-white rounded-xl overflow-hidden'>
 
@@ -17,9 +29,10 @@ const CollectionCard = ({item}) => {
 
             <button
             onClick={()=>{
-                console.log('removed')
+                // console.log('removed')
+                removeFromCollection(item)
             }}
-             className=' bg-indigo-600 text-white rounded px-3 py-2 cursor-pointer font-medium text-[14px] '>Save</button>         
+             className=' bg-indigo-600 text-white rounded px-2 py-2 cursor-pointer font-medium text-[14px] '>remove</button>         
         </div>
 
     </div>

@@ -47,12 +47,12 @@ const collectionSlice = createSlice({
     removeToast: () => {
       toast.error("removed from collection", {
         position: "top-center",
-        autoClose: 500,
+        autoClose: 2000,
         hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
+        closeOnClick: true,
+        pauseOnHover: false,
         draggable: true,
-        progress: 0.1,
+        progress: 0,
         theme: "dark",
         transition: Zoom,
       });
